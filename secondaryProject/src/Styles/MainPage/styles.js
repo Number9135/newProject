@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
         height : 100,
         width : 410,
         flexDirection : "row",
-        alignContent : "flex-start"
-       
+        alignContent : "flex-start",
+        
     },
 
     uppercontainer01 : {
@@ -23,6 +23,9 @@ const styles = StyleSheet.create({
         borderWidth : 1,
         height : 50,
         width : 50,
+        marginTop : 45,
+        alignItems : "center",
+        justifyContent : "center",
     },
 
     upperContainer02 : {
@@ -30,16 +33,41 @@ const styles = StyleSheet.create({
         borderWidth : 1,
         height : 50,
         width : 410,
+        marginTop : 45,
     },
 
 
-    middleContainer : {
+    secondaryUpperContainer : {
         borderWidth : 1,
+        flexDirection : "row",
+        height : 50,
     },
+
+    secondaryUpperContainer01 : {
+        borderWidth : 1,
+        width : 50,
+        height : 50,
+        justifyContent : "center",
+        alignItems : "center"
+    },
+    
+    secondaryUpperContainer02 : {
+        borderWidth : 1,
+        height : 50,
+        width : 410,
+    },
+
 
     lowerContainer : {
         borderWidth : 1,
     },
+
+
+    headerText : {
+        textAlign : "auto",
+        paddingTop : 20,
+        fontSize : 20
+    }
 
 })
 
