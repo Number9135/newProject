@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import {View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
-import hightheel from '../../../assets/hightheel.jpg'
+import highHeel from '../../../assets/highHeel.jpg'
 import {AntDesign} from '@expo/vector-icons';
 import LoadingPage from '../form/LoadingPage';
 import styles from '../../styles/MainPageStyles';
+import MyStack from '../stacknavigator/StackNavigator';
+import LoginPage from '../form/LoginPage';
+import { createStackNavigator } from "@react-navigation/stack";
 
 
 
-export default function MainPage() {
+
+export default function MainPage({navigation}) {
     const [ready, setReady] = useState(true)
     useEffect(()=>{
         setTimeout(()=>{
@@ -22,7 +26,7 @@ export default function MainPage() {
     <View style = {styles.container}>
         <View style = {styles.upperContainer}>
             <View style = {styles.uppercontainer01}>
-                <Image source = {hightheel}/>
+                <Image source = {highHeel}/>
             </View>
 
             <View style = {styles.upperContainer02}>
@@ -33,7 +37,7 @@ export default function MainPage() {
 
         <View style = {styles.secondaryUpperContainer}>
             <View style = {styles.secondaryUpperContainer01}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>{navigation.navigate('LoginPage')}}>
                 <AntDesign name ="login" size = {24} color="black"/>
                 </TouchableOpacity>
             </View>
