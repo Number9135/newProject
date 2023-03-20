@@ -67,6 +67,18 @@ const styles = StyleSheet.create({
         textAlign : "auto",
         paddingTop : 20,
         fontSize : 20
+    },
+
+    middleContainer : {
+        borderWidth : 1,
+        flex : 3,
+        backgroundColor : "blue",
+
+    },
+
+    lowerContainer : {
+        flex : 1,
+        backgroundColor : "yellow",
     }
 
 })

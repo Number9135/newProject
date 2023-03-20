@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
-import LoginPage from './LoginPage';
-import hightheel from '../../../assets/hightheel.jpg';
+import hightheel from '../../../assets/hightheel.jpg'
 import {AntDesign} from '@expo/vector-icons';
-import styles from '../../Styles/MainPage/styles';
+import LoadingPage from '../form/LoadingPage';
+import styles from '../../styles/MainPageStyles';
+
 
 
 export default function MainPage() {
@@ -14,7 +15,7 @@ export default function MainPage() {
         }, 3000)
     })
   
-    return ready ? <LoginPage/> :  (
+   return ready ? <LoadingPage/> :  (
 
     
 
@@ -32,7 +33,7 @@ export default function MainPage() {
 
         <View style = {styles.secondaryUpperContainer}>
             <View style = {styles.secondaryUpperContainer01}>
-                <TouchableOpacity onPress= {()=>{Navigation.navigate('로그인페이지')}}>
+                <TouchableOpacity>
                 <AntDesign name ="login" size = {24} color="black"/>
                 </TouchableOpacity>
             </View>
@@ -43,10 +44,13 @@ export default function MainPage() {
         </View>
 
 
-        <View style = {styles.lowerContainer}>
+        <View style = {styles.middleContainer}>
 
+        </View>
+
+        <View style = {styles.lowerContainer}>
+            
         </View>
     </View>
   )
 }
-
