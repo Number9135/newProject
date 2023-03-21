@@ -7,6 +7,7 @@ import styles from '../../styles/MainPageStyles';
 import MyStack from '../stacknavigator/StackNavigator';
 import LoginPage from '../form/LoginPage';
 import { createStackNavigator } from "@react-navigation/stack";
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 
 
@@ -41,9 +42,31 @@ export default function MainPage({navigation}) {
                 <AntDesign name ="login" size = {24} color="black"/>
                 </TouchableOpacity>
             </View>
-
+            
             <View style = {styles.secondaryUpperContainer02}>
+                <TouchableHighlight onPress={()=>{}} underlayColor = "blue">
+                    <View style = {styles.menuContainer}>
+                        <Text style = {styles.textStyle}>감동</Text>
+                    </View>
+                </TouchableHighlight>
 
+                <TouchableOpacity>
+                    <View style = {styles.menuContainer}>
+                        <Text style = {styles.textStyle}>명언</Text>
+                    </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity>
+                    <View style = {styles.menuContainer}>
+                        <Text style = {styles.textStyle}>속담</Text>
+                    </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity>
+                    <View style = {styles.menuContainer}>
+                        <Text style = {styles.textStyle}>동기</Text>
+                    </View>
+                </TouchableOpacity>
             </View>
         </View>
 

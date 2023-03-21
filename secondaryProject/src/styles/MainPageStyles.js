@@ -55,6 +55,25 @@ const styles = StyleSheet.create({
         borderWidth : 1,
         height : 50,
         width : 410,
+        flexDirection : "row",
+        justifyContent : "space-around",
+        alignItems : "center",
+      
+    },
+
+    menuContainer : {
+        borderWidth : 1,
+        borderRadius : 5,
+        height : 35,
+        width : 80,
+        alignItems : "center",
+        justifyContent : "center",
+        
+        
+    },
+
+    textStyle : {
+        fontSize : 15,
     },
 
 
