@@ -9,9 +9,27 @@ const styles = StyleSheet.create({
         borderWidth : 1,
     },
 
-    upperContainer : {
+    headerContainer : {
+        borderWidth : 1,
+        height : 150,
+        justifyContent : "center",
+        alignItems : "center",
+    },
+
+    headerImageStyle : {
+        height : 100,
+        width : 405,
+    },
+
+    headerImageContainer : {
         borderWidth : 1,
         height : 100,
+       
+    },
+
+    upperContainer : {
+        borderWidth : 1,
+        height : 50,
         width : 410,
         flexDirection : "row",
         alignContent : "flex-start",
@@ -23,7 +41,6 @@ const styles = StyleSheet.create({
         borderWidth : 1,
         height : 50,
         width : 50,
-        marginTop : 45,
         alignItems : "center",
         justifyContent : "center",
     },
@@ -33,7 +50,7 @@ const styles = StyleSheet.create({
         borderWidth : 1,
         height : 50,
         width : 410,
-        marginTop : 45,
+        marginTop : 0,
     },
 
 
@@ -92,6 +109,7 @@ const styles = StyleSheet.create({
         borderWidth : 1,
         flex : 3,
         backgroundColor : "blue",
+       
 
     },
 
