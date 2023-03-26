@@ -11,11 +11,15 @@ import { TouchableHighlight } from 'react-native-gesture-handler';
 import { SliderBox } from 'react-native-image-slider-box';
 import headerImage from '../../../assets/headerImage.jpg'
 // import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { firebase_db } from '../auth/FirebaseConfig';
+
 
 
 
 
 export default function MainPage({navigation}) {
+  
+
     const [ready, setReady] = useState(true)
     useEffect(()=>{
         setTimeout(()=>{
@@ -101,20 +105,28 @@ export default function MainPage({navigation}) {
             
         >
 
-            <SliderBox
+            <SliderBox 
                 autoplay = {true}
                 circleLoop = {true}
                 resizeMode = 'cover'
                 images = {this.state.imageList}
                 dotColor = 'rgba(0, 0, 0, 0)'
                 inactiveDotColor = 'rgba(0, 0, 0, 0)'
+                
                 // ImageComponentStyle = {{width : wp('100%'), height : hp('30%')}}
                 // currentImageEmitter = {(imageList) => 
                 //         this.setState({currentIndex : index + 1})}
                     
             />
 
+                <View>
+                     <Text style = {styles.middleText}>꿈을 이루고자 하는 용기만 있다면 모든 꿈을 이룰 수 있다.</Text>
+                     <Text sytle = {styles.middleText01}>-월트 디즈니-</Text>
+                </View>
+
         </View>
+
+        
 
         <View style = {styles.lowerContainer}>
             

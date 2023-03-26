@@ -108,10 +108,20 @@ const styles = StyleSheet.create({
     middleContainer : {
         borderWidth : 1,
         flex : 3,
-        backgroundColor : "blue",
        
-
+       
     },
+
+    middleText : {
+        fontSize : 25,
+        alignSelf : "center"
+    },
+
+    middleText01 : {
+        paddingTop : 30,
+        fontSize : 30,
+    },
+
 
     lowerContainer : {
         flex : 1,
