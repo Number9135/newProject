@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
         width : 410,
         height : 700,
         borderWidth : 1,
+       
     },
 
     headerContainer : {
@@ -14,6 +15,7 @@ const styles = StyleSheet.create({
         height : 150,
         justifyContent : "center",
         alignItems : "center",
+       
     },
 
     headerImageStyle : {

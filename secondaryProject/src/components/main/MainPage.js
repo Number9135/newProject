@@ -12,6 +12,7 @@ import { SliderBox } from 'react-native-image-slider-box';
 import headerImage from '../../../assets/headerImage.jpg'
 // import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { firebase_db } from '../auth/FirebaseConfig';
+import SignUpModal from '../modal/SignUpModal';
 
 
 
@@ -73,7 +74,7 @@ export default function MainPage({navigation}) {
             
 
             <View style = {styles.secondaryUpperContainer02}>
-                <TouchableHighlight onPress={()=>{navigation.navigate('LoginPage')}} underlayColor = "blue">
+                <TouchableHighlight onPress={()=>{navigation.navigate('SignUpModal')}} underlayColor = "blue">
                     <View style = {styles.menuContainer}>
                         <Text style = {styles.textStyle}>감동</Text>
                     </View>

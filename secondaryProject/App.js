@@ -8,6 +8,7 @@ import LoginPage from './src/components/form/LoginPage';
 import { initializeApp } from 'firebase/app';
 
 
+
 export default function App() {
 
 
@@ -16,4 +17,6 @@ export default function App() {
     <StatusBar style="black" />
     <StackNavigator/>
     </NavigationContainer>);
+
+   
 }
