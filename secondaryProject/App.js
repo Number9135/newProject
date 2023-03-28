@@ -5,9 +5,9 @@ import { StatusBar } from 'expo-status-bar';
 import {NavigationContainer} from '@react-navigation/native';
 import StackNavigator from './src/components/stacknavigator/StackNavigator'
 import LoginPage from './src/components/form/LoginPage';
-import { initializeApp } from 'firebase/app';
-
-
+import {View} from 'react-native'
+// import { initializeApp } from 'firebase/app';
+import testPage from './src/components/main/testPage';
 
 export default function App() {
 
@@ -18,5 +18,5 @@ export default function App() {
     <StackNavigator/>
     </NavigationContainer>);
 
-   
+  
 }
