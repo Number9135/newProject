@@ -7,7 +7,7 @@ import StackNavigator from './src/components/stacknavigator/StackNavigator'
 import LoginPage from './src/components/form/LoginPage';
 import {View} from 'react-native'
 // import { initializeApp } from 'firebase/app';
-import testPage from './src/components/main/testPage';
+import TestPage from './src/components/main/TestPage';
 
 export default function App() {
 
