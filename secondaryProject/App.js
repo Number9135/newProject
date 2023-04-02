@@ -9,14 +9,15 @@ import {View} from 'react-native'
 // import { initializeApp } from 'firebase/app';
 import TestPage from './src/components/main/TestPage';
 
-export default function App() {
 
+export default function App() {
 
   return (
     <NavigationContainer>
     <StatusBar style="black" />
     <StackNavigator/>
-    </NavigationContainer>);
+    </NavigationContainer>
+    );
 
   
 }

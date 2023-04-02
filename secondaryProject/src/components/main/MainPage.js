@@ -7,37 +7,24 @@ import styles from '../../styles/MainPageStyles';
 import MyStack from '../stacknavigator/StackNavigator';
 import LoginPage from '../form/LoginPage';
 import { createStackNavigator } from "@react-navigation/stack";
-import { TouchableHighlight } from 'react-native-gesture-handler';
 import { SliderBox } from 'react-native-image-slider-box';
 import headerImage from '../../../assets/headerImage.jpg'
-// import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { firebase_db } from '../auth/FirebaseConfig';
-import TestPage from './TestPage'
+import {Ionicons, Feather, FontAwesome} from '@expo/vector-icons';
 
 
 
 export default function MainPage({navigation}) {
-  
-
     const [ready, setReady] = useState(true)
-    useEffect(()=>{
-        setTimeout(()=>{
-            setReady(false)
-        }, 3000)
-    })
+  useEffect(()=>{
+      setTimeout(()=>{
+          setReady(false)
+      }, 3000)
+  })
 
-    state = {
-        currentIndex : 1,
-        imageList : [
-            require('../../../assets/motivation.jpg'), 
-            require('../../../assets/lion.jpg'),
-            require('../../../assets/writting.jpg')]
-    }
-    
 
-   return ready ? <LoadingPage/> :  (
+  return ready ? <LoadingPage/> :(
 
-    
 
     <View style = {styles.container}>
 
@@ -56,45 +43,6 @@ export default function MainPage({navigation}) {
                 <View style = {styles.upperContainer02}>
                     <Text style = {styles.headerText}>하루, 이틀 그리고 힐링</Text>
                 </View>
-
-            </View>
-
-        </View>
-
-
-        <View style = {styles.secondaryUpperContainer}>
-
-            <View style = {styles.secondaryUpperContainer01}>
-                <TouchableOpacity onPress={()=>{navigation.navigate('LoginPage')}}>
-                <AntDesign name ="login" size = {24} color="black"/>
-                </TouchableOpacity>
-            </View>
-            
-
-            <View style = {styles.secondaryUpperContainer02}>
-                <TouchableHighlight onPress={()=>{navigation.navigate('TestPage')}}>
-                    <View style = {styles.menuContainer}>
-                        <Text style = {styles.textStyle}>감동</Text>
-                    </View>
-                </TouchableHighlight>
-
-                <TouchableOpacity>
-                    <View style = {styles.menuContainer}>
-                        <Text style = {styles.textStyle}>명언</Text>
-                    </View>
-                </TouchableOpacity>
-
-                <TouchableOpacity>
-                    <View style = {styles.menuContainer}>
-                        <Text style = {styles.textStyle}>속담</Text>
-                    </View>
-                </TouchableOpacity>
-
-                <TouchableOpacity>
-                    <View style = {styles.menuContainer}>
-                        <Text style = {styles.textStyle}>동기</Text>
-                    </View>
-                </TouchableOpacity>
             </View>
 
         </View>
@@ -104,7 +52,7 @@ export default function MainPage({navigation}) {
             
         >
 
-            <SliderBox 
+            {/* <SliderBox 
                 autoplay = {true}
                 circleLoop = {true}
                 resizeMode = 'cover'
@@ -116,7 +64,7 @@ export default function MainPage({navigation}) {
                 // currentImageEmitter = {(imageList) => 
                 //         this.setState({currentIndex : index + 1})}
                     
-            />
+            /> */}
 
                 <View>
                      <Text style = {styles.middleText}>꿈을 이루고자 하는 용기만 있다면 모든 꿈을 이룰 수 있다.</Text>
@@ -128,8 +76,39 @@ export default function MainPage({navigation}) {
         
 
         <View style = {styles.lowerContainer}>
-            
+       
+                
+
+                <TouchableOpacity>
+                    <View style = {styles.menuContainer}>
+                    <Ionicons name = 'time-outline' size = {20} color = 'black'/>
+                        <Text style = {styles.textStyle}>하루 1분</Text>
+                    </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity>
+                    <View style = {styles.menuContainer}>
+                        <FontAwesome name = 'pencil' size = {20} color = 'black'/>
+                        <Text style = {styles.textStyle}>글 귀</Text>
+                    </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={()=>{navigation.navigate('TestPage')}}>
+                    <View style = {styles.menuContainer}>
+                        <AntDesign name = 'message1' size={20} color = 'black'/>
+                        <Text style = {styles.textStyle}>메세지</Text>
+                    </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    onPress={()=>{navigation.navigate('LoginPage')}}>
+                    <View style = {styles.menuContainer}>
+                        <Feather name = 'home' size = {20} color = 'black'/>
+                        <Text style = {styles.textStyle}>로그인</Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
         </View>
-    </View>
+   
   )
 }

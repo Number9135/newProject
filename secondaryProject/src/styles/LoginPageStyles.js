@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container : {
         flex : 1,
         borderWidth : 1,
-        backgroundColor : '#ffe4e1',
+        backgroundColor : 'rgb(220,210,225)',
         
     },
 
@@ -136,6 +136,12 @@ const styles = StyleSheet.create({
         alignSelf : 'center',
         marginTop : 25,
     },
+
+    textInputStyle: {
+        alignSelf : "auto",
+        paddingLeft : 10,
+        paddingTop : 5,
+    }
 
 
 

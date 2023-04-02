@@ -4,6 +4,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container : {
+        flex : 1,
         width : 410,
         height : 700,
         borderWidth : 1,
@@ -56,49 +57,33 @@ const styles = StyleSheet.create({
     },
 
 
-    secondaryUpperContainer : {
+    lowerContainer : {
+        
         borderWidth : 1,
-        flexDirection : "row",
-        height : 50,
-    },
-
-    secondaryUpperContainer01 : {
-        borderWidth : 1,
-        width : 50,
-        height : 50,
-        justifyContent : "center",
-        alignItems : "center"
-    },
-    
-    secondaryUpperContainer02 : {
-        borderWidth : 1,
-        height : 50,
+        height : 80,
         width : 410,
         flexDirection : "row",
         justifyContent : "space-around",
         alignItems : "center",
-      
+        backgroundColor : "linen"
+       
     },
 
     menuContainer : {
         borderWidth : 1,
-        borderRadius : 5,
-        height : 35,
-        width : 80,
+        borderRadius : 30,
+        height : 50,
+        width : 90,
         alignItems : "center",
         justifyContent : "center",
-        
+        backgroundColor : "mistyrose",
         
     },
 
     textStyle : {
-        fontSize : 15,
+        fontSize : 14,
     },
 
-
-    lowerContainer : {
-        borderWidth : 1,
-    },
 
 
     headerText : {
@@ -109,7 +94,7 @@ const styles = StyleSheet.create({
 
     middleContainer : {
         borderWidth : 1,
-        flex : 3,
+        flex : 2,
        
        
     },
@@ -124,11 +109,6 @@ const styles = StyleSheet.create({
         fontSize : 30,
     },
 
-
-    lowerContainer : {
-        flex : 1,
-        backgroundColor : "yellow",
-    }
 
 })
 
