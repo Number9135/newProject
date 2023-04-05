@@ -2,28 +2,20 @@ import React, { useEffect, useState } from 'react';
 import {View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
 import highHeel from '../../../assets/highHeel.jpg'
 import {AntDesign} from '@expo/vector-icons';
-import LoadingPage from '../form/LoadingPage';
-import styles from '../../styles/MainPageStyles';
+import LoadingPage from './LoadingPage';
 import MyStack from '../stacknavigator/StackNavigator';
-import LoginPage from '../form/LoginPage';
+import LoginPage from './LoginPage';
 import { createStackNavigator } from "@react-navigation/stack";
 import { SliderBox } from 'react-native-image-slider-box';
 import headerImage from '../../../assets/headerImage.jpg'
-import { firebase_db } from '../auth/FirebaseConfig';
 import {Ionicons, Feather, FontAwesome} from '@expo/vector-icons';
 
 
 
-export default function MainPage({navigation}) {
-    const [ready, setReady] = useState(true)
-  useEffect(()=>{
-      setTimeout(()=>{
-          setReady(false)
-      }, 3000)
-  })
+export default function AsseyPage({navigation}) {
+   
 
-
-  return ready ? <LoadingPage/> :(
+  return (
 
 
     <View style = {styles.container}>
@@ -48,26 +40,11 @@ export default function MainPage({navigation}) {
         </View>
 
 
-        <View style = {styles.middleContainer}
-            
-        >
+        <View style = {styles.middleContainer}>
 
-            {/* <SliderBox 
-                autoplay = {true}
-                circleLoop = {true}
-                resizeMode = 'cover'
-                images = {this.state.imageList}
-                dotColor = 'rgba(0, 0, 0, 0)'
-                inactiveDotColor = 'rgba(0, 0, 0, 0)'
-                
-                // ImageComponentStyle = {{width : wp('100%'), height : hp('30%')}}
-                // currentImageEmitter = {(imageList) => 
-                //         this.setState({currentIndex : index + 1})}
-                    
-            /> */}
 
                 <View>
-                     <Text style = {styles.middleText}>꿈을 이루고자 하는 용기만 있다면 모든 꿈을 이룰 수 있다.</Text>
+                     <Text style = {styles.middleText}>asdasd있asdasdas다면 모든 꿈을 이룰 수 있다.</Text>
                      <Text sytle = {styles.middleText01}>-월트 디즈니-</Text>
                 </View>
 
@@ -81,21 +58,21 @@ export default function MainPage({navigation}) {
 
                 <TouchableOpacity>
                     <View style = {styles.menuContainer}>
-                    <Ionicons name = 'time-outline' size = {20} color = 'black'/>
+                    <Ionicons name = 'time-outline' size = {15} color = 'black'/>
                         <Text style = {styles.textStyle}>하루 1분</Text>
                     </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity>
                     <View style = {styles.menuContainer}>
-                        <FontAwesome name = 'pencil' size = {20} color = 'black'/>
+                        <FontAwesome name = 'pencil' size = {15} color = 'black'/>
                         <Text style = {styles.textStyle}>글 귀</Text>
                     </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={()=>{navigation.navigate('TestPage')}}>
                     <View style = {styles.menuContainer}>
-                        <AntDesign name = 'message1' size={20} color = 'black'/>
+                        <AntDesign name = 'message1' size={15} color = 'black'/>
                         <Text style = {styles.textStyle}>메세지</Text>
                     </View>
                 </TouchableOpacity>
@@ -103,7 +80,7 @@ export default function MainPage({navigation}) {
                 <TouchableOpacity
                     onPress={()=>{navigation.navigate('LoginPage')}}>
                     <View style = {styles.menuContainer}>
-                        <Feather name = 'home' size = {20} color = 'black'/>
+                        <Feather name = 'home' size = {15} color = 'black'/>
                         <Text style = {styles.textStyle}>로그인</Text>
                     </View>
                 </TouchableOpacity>
@@ -112,3 +89,118 @@ export default function MainPage({navigation}) {
    
   )
 }
+
+
+
+const styles = StyleSheet.create({
+    container : {
+        flex : 1,
+        width : 410,
+        height : 700,
+        borderWidth : 1,
+       
+    },
+
+    headerContainer : {
+        borderWidth : 1,
+        height : 150,
+        justifyContent : "center",
+        alignItems : "center",
+       
+    },
+
+    headerImageStyle : {
+        height : 100,
+        width : 405,
+    },
+
+    headerImageContainer : {
+        borderWidth : 1,
+        height : 100,
+       
+    },
+
+    upperContainer : {
+        borderWidth : 1,
+        height : 50,
+        width : 410,
+        flexDirection : "row",
+        alignContent : "flex-start",
+        
+    },
+
+    uppercontainer01 : {
+        
+        borderWidth : 1,
+        height : 50,
+        width : 50,
+        alignItems : "center",
+        justifyContent : "center",
+    },
+
+    upperContainer02 : {
+        
+        borderWidth : 1,
+        height : 50,
+        width : 410,
+        marginTop : 0,
+    },
+
+
+    lowerContainer : {
+        
+        borderWidth : 1,
+        height : 80,
+        width : 410,
+        flexDirection : "row",
+        justifyContent : "space-around",
+        alignItems : "center",
+        backgroundColor : "linen"
+       
+    },
+
+    menuContainer : {
+        borderWidth : 1,
+        borderRadius : 30,
+        height : 40,
+        width : 75,
+        alignItems : "center",
+        justifyContent : "center",
+        backgroundColor : "mistyrose",
+        
+    },
+
+    textStyle : {
+        fontSize : 14,
+    },
+
+
+
+    headerText : {
+        textAlign : "auto",
+        paddingTop : 20,
+        fontSize : 20
+    },
+
+    middleContainer : {
+        borderWidth : 1,
+        flex : 2,
+       
+       
+    },
+
+    middleText : {
+        fontSize : 25,
+        alignSelf : "center"
+    },
+
+    middleText01 : {
+        paddingTop : 30,
+        fontSize : 30,
+    },
+
+
+})
+
+
+
