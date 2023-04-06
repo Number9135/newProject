@@ -74,12 +74,19 @@ const styles = StyleSheet.create({
 
 
     mainContainer : {
-        height : 350,
+        height : 400,
+        width : 410,
+        alignSelf : 'center',
+        backgroundColor : 'rgb(220,210,225)',
+        
+    },
+
+    signUpContainer : {
+        height : 370,
         width : 300,
         borderWidth : 1,
         alignSelf : 'center',
         backgroundColor : 'white',
-        
     },
 
     idPwContainer : {
@@ -134,7 +141,7 @@ const styles = StyleSheet.create({
         height : 40,
         width : 280,
         alignSelf : 'center',
-        marginTop : 25,
+        marginTop : 35,
     },
 
     textInputStyle: {

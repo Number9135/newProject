@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import {View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
 import highHeel from '../../../assets/highHeel.jpg'
 import {AntDesign} from '@expo/vector-icons';
-import LoadingPage from './LoadingPage';
+import LoadingPage from '../form/LoadingPage';
 import MyStack from '../stacknavigator/StackNavigator';
-
+import LoginPage from './LoginPage';
 import { createStackNavigator } from "@react-navigation/stack";
 import { SliderBox } from 'react-native-image-slider-box';
 import headerImage from '../../../assets/headerImage.jpg'
 import {Ionicons, Feather, FontAwesome} from '@expo/vector-icons';
+import {Menu, Divider, Provider} from 'react-native-paper';
 
 
-
-export default function AsseyPage({navigation}) {
+export default function MessagePage() {
    
 
   return (
@@ -20,20 +20,26 @@ export default function AsseyPage({navigation}) {
 
     <View style = {styles.container}>
 
-        <View style = {styles.headerContainer}>
+        <View style = {headerStyle.headerContainer}>
 
-            <View style = {styles.headerImageContainer}>
-                <Image source = {headerImage} style ={styles.headerImageStyle}/>
+            <View style = {headerStyle.headerImageContainer}>
+                <Image source = {headerImage} style ={headerStyle.headerImageStyle}/>
             </View>
 
-            <View style = {styles.upperContainer}>
+            <View style = {headerStyle.upperContainer}>
 
-                <View style = {styles.uppercontainer01}>
+                <View style = {headerStyle.uppercontainer01}>
                     <Image source = {highHeel}/>
                 </View>
 
-                <View style = {styles.upperContainer02}>
-                    <Text style = {styles.headerText}>하루, 이틀 그리고 힐링</Text>
+                <View style = {headerStyle.upperContainer02}>
+                    <Text style = {headerStyle.headerTitleText}>하루, 이틀 그리고 힐링</Text>
+                </View>
+
+                <View style = {headerStyle.upperContainer03}>
+                    <TouchableOpacity>
+                        <Feather name='menu' size={20} color='black'/>
+                    </TouchableOpacity>
                 </View>
             </View>
 
@@ -44,18 +50,17 @@ export default function AsseyPage({navigation}) {
 
 
                 <View>
-                     <Text style = {styles.middleText}>asdasd있asdasdas다면 모든 꿈을 이룰 수 있다.</Text>
+                     <Text style = {styles.middleText}>모든 꿈을 이룰 수 있다.</Text>
                      <Text sytle = {styles.middleText01}>-월트 디즈니-</Text>
                 </View>
 
         </View>
 
+        
         </View>
    
   )
 }
-
-
 
 const styles = StyleSheet.create({
     container : {
@@ -66,50 +71,6 @@ const styles = StyleSheet.create({
        
     },
 
-    headerContainer : {
-        borderWidth : 1,
-        height : 150,
-        justifyContent : "center",
-        alignItems : "center",
-       
-    },
-
-    headerImageStyle : {
-        height : 100,
-        width : 405,
-    },
-
-    headerImageContainer : {
-        borderWidth : 1,
-        height : 100,
-       
-    },
-
-    upperContainer : {
-        borderWidth : 1,
-        height : 50,
-        width : 410,
-        flexDirection : "row",
-        alignContent : "flex-start",
-        
-    },
-
-    uppercontainer01 : {
-        
-        borderWidth : 1,
-        height : 50,
-        width : 50,
-        alignItems : "center",
-        justifyContent : "center",
-    },
-
-    upperContainer02 : {
-        
-        borderWidth : 1,
-        height : 50,
-        width : 410,
-        marginTop : 0,
-    },
 
 
     lowerContainer : {
@@ -124,16 +85,7 @@ const styles = StyleSheet.create({
        
     },
 
-    menuContainer : {
-        borderWidth : 1,
-        borderRadius : 30,
-        height : 40,
-        width : 75,
-        alignItems : "center",
-        justifyContent : "center",
-        backgroundColor : "mistyrose",
-        
-    },
+    
 
     textStyle : {
         fontSize : 14,
@@ -164,8 +116,4 @@ const styles = StyleSheet.create({
         fontSize : 30,
     },
 
-
 })
-
-
-

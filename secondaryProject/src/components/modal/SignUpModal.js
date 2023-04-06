@@ -31,9 +31,10 @@ export default function SignUpModal({ modalVisible, closeModal }) {
 
 
   return (
+
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding': 'height'}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-    <Modal visible={modalVisible} animationType="slide">
+    <Modal visible={modalVisible} animationType="slide" transparent={true}>
       
       <View style={styles.modalContainer}>
         <View>
@@ -92,16 +93,16 @@ export default function SignUpModal({ modalVisible, closeModal }) {
 
 const styles = StyleSheet.create({
   modalContainer: {
-    height: 550,
-    width: 350,
+    height: 430,
+    width: 300,
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 1,
     alignSelf: "center",
-    marginTop: 50,
+    marginTop: 140,
     borderRadius: 20,
     backgroundColor: "rgb(220,210,210)",
-    opacity: 0.8,
+    opacity: 4,
     shadowOffset: {
       width: 1,
       height: 2,
@@ -113,9 +114,9 @@ const styles = StyleSheet.create({
   idPwContainer : {
     justifyContent : 'center',
     height : 30,
-    width : 250,
-    marginLeft : 10,
-    marginTop : 10,
+    width : 200,
+    marginLeft : 0,
+    marginTop : 5,
 },
 
 idPwText : {
@@ -124,10 +125,10 @@ idPwText : {
 
 textInputContainer : {
     height : 40,
-    width : 280,
+    width : 200,
     borderWidth : 1,
-    marginTop : 10,
-    marginLeft : 10,
+    marginTop : 3,
+    marginLeft : 0,
     marginBottom : 0,
     borderRadius : 20,
     paddingLeft : 20,
@@ -136,10 +137,11 @@ textInputContainer : {
 
 lowerContainer : {
   flexDirection : 'row',
-  marginTop : 10,
+  marginTop : 3,
   justifyContent : 'space-between',
   height : 70,
-  width : 250,
+  width : 200,
+  borderWidth :0,
 },
 
 signUpBackStyle : {
