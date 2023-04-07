@@ -7,8 +7,11 @@ import MyStack from '../stacknavigator/StackNavigator';
 import LoginPage from '../pages/LoginPage';
 import { createStackNavigator } from "@react-navigation/stack";
 import headerImage from '../../../assets/headerImage.jpg'
-import {Ionicons, Feather, FontAwesome} from '@expo/vector-icons';
+import {Ionicons, Feather, FontAwesome, MaterialCommunityIcons} from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
+import Fab from '../modal/FabGroup';
+import FabGroup from '../modal/FabGroup';
+import { Provider, FAB } from 'react-native-paper';
 
 
 export default function HomePage({navigation}) {
@@ -24,6 +27,7 @@ export default function HomePage({navigation}) {
   return ready ? (
     <LoadingPage />
   ) : (
+    <Provider>
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <View style={styles.headerImageContainer}>
@@ -40,47 +44,51 @@ export default function HomePage({navigation}) {
           </View>
         </View>
       </View>
-      
-
 
       <ScrollView style={styles.middleContainer}>
         <Text>Main content</Text>
       </ScrollView>
 
-
-
       <View style={styles.lowerContainer}>
         <TouchableOpacity style={styles.buttonStyle}>
-          <View>
-            <Text>홈</Text>
-          </View>
+          <AntDesign name="home" size={17} color="black" />
+          <Text>홈</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.buttonStyle}>
-          <View>
-            <Text>하루1분</Text>
-          </View>
+          <Ionicons name="time-outline" size={17} color="black" />
+          <Text>하루1분</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.buttonStyle}>
-          <View>
-            <Text>글 귀</Text>
-          </View>
+          <Ionicons name="reader-outline" size={17} color="black" />
+          <Text>글 귀</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.buttonStyle}>
-          <View>
-            <Text>메세지</Text>
-          </View>
+          <MaterialCommunityIcons
+            name="message-outline"
+            size={17}
+            color="black"
+          />
+          <Text>메세지</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.buttonStyle} onPress={()=>{navigation.navigate('LoginPage')}}>
-          <View>
-            <Text>로그인</Text>
-          </View>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={() => {
+            navigation.navigate("LoginPage");
+          }}
+        >
+          <AntDesign name="login" size={17} color="black" />
+          <Text>로그인</Text>
         </TouchableOpacity>
       </View>
+            
+      <FabGroup/>
+      
     </View>
+    </Provider>
   );
 }
 

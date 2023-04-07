@@ -4,7 +4,7 @@ import {View, Text, TextInput, StyleSheet, ImageBackgroundComponent, Image, Moda
 import headerImage from '../../../assets/headerImage.jpg';
 import highHeel from '../../../assets/highHeel.jpg';
 import SignUpModal from '../modal/SignUpModal';
-import {Ionicons, Feather, FontAwesome} from '@expo/vector-icons';
+import {Ionicons, Feather, FontAwesome, AntDesign, MaterialCommunityIcons} from '@expo/vector-icons';
 import {Menu, Divider, Provider} from 'react-native-paper';
 import BottomMenu from '../form/BottomMenu';
 import MyStack from '../stacknavigator/StackNavigator';
@@ -40,55 +40,73 @@ export default function LoginPage({navigation}) {
           <Text style={styles.titleText}>Login</Text>
         </View>
 
-        
-          <View style={styles.signUpContainer}>
-            <View style={styles.idPwContainer}>
-              <Text style={styles.idPwText}>ID를 입력하세요</Text>
-            </View>
-            <View style={styles.textInputContainer}>
-              <TextInput style={styles.textInputStyle} />
-            </View>
-            <View style={styles.idPwContainer}>
-              <Text style={styles.idPwText}>Pw를 입력하세요</Text>
-            </View>
-            <View style={styles.textInputContainer}>
-              <TextInput style={styles.textInputStyle} secureTextEntry />
-            </View>
-
-            <View style={styles.signInContainer}>
-              <TouchableOpacity>
-                <Text>로그인</Text>
-              </TouchableOpacity>
-            </View>
-
-            <View style={styles.searchContainer}>
-              <View style={styles.searchIdpwContainer}>
-                <TouchableOpacity>
-                  <Text>Id 찾기</Text>
-                </TouchableOpacity>
-              </View>
-              <View style={styles.searchIdpwContainer}>
-                <TouchableOpacity>
-                  <Text>Pw 찾기</Text>
-                </TouchableOpacity>
-              </View>
-
-              <View style={styles.searchIdpwContainer}>
-                <TouchableOpacity onPress={openModal}>
-                  <Text>회원가입</Text>
-                </TouchableOpacity>
-                <SignUpModal
-                  modalVisible={modalVisible}
-                  closeModal={closeMdoal}
-                />
-              </View>
-            </View>
+        <View style={styles.signUpContainer}>
+          <View style={styles.idPwContainer}>
+            <Text style={styles.idPwText}>ID를 입력하세요</Text>
           </View>
-        
+          <View style={styles.textInputContainer}>
+            <TextInput style={styles.textInputStyle} />
+          </View>
+          <View style={styles.idPwContainer}>
+            <Text style={styles.idPwText}>Pw를 입력하세요</Text>
+          </View>
+          <View style={styles.textInputContainer}>
+            <TextInput style={styles.textInputStyle} secureTextEntry />
+          </View>
+
+          <TouchableOpacity style={styles.signInContainer}>
+            <Text>로그인</Text>
+          </TouchableOpacity>
+
+          <View style={styles.searchContainer}>
+            <TouchableOpacity style={styles.searchIdpwContainer}>
+              <Text>Id 찾기</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.searchIdpwContainer}>
+              <Text>Pw 찾기</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.searchIdpwContainer}
+              onPress={openModal}
+            >
+              <Text>회원가입</Text>
+
+              <SignUpModal
+                modalVisible={modalVisible}
+                closeModal={closeMdoal}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
 
       <View style={styles.lowerContainer}>
-        <BottomMenu />
+        <TouchableOpacity style={styles.buttonStyle}>
+          <AntDesign name="home" size={17} color="black" />
+          <Text>홈</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.buttonStyle}>
+          <Ionicons name="time-outline" size={17} color="black" />
+          <Text>하루1분</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.buttonStyle}>
+          <Ionicons name="reader-outline" size={17} color="black" />
+          <Text>글 귀</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.buttonStyle}>
+          <MaterialCommunityIcons name="message-outline" size={17} color="black"/>
+          <Text>메세지</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity disabled style={styles.buttonStyle}>
+          <AntDesign name="login" size={17} color="black" />
+          <Text>로그인</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -212,11 +230,21 @@ middleContainer : {
 
 
 lowerContainer : {
-  borderWidth : 0,
-  height : 60,
+  borderWidth : 1,
+  flex : 1,
+  flexDirection : 'row',
+  justifyContent : 'space-around'
 },
-
-
+  
+    buttonStyle : {
+      borderWidth : 1,
+      height : 50,
+      width : 60,
+      borderRadius : 10,
+      alignSelf : 'center',
+      justifyContent : 'center',
+      alignItems : 'center',
+    }
 
 
 

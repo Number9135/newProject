@@ -71,16 +71,16 @@ export default function SignUpModal({ modalVisible, closeModal }) {
         
 
         <View style = {styles.lowerContainer}>
-          <View style = {styles.signUpBackStyle}>
-            <TouchableOpacity disabled={notAllow}>
+         
+            <TouchableOpacity style = {styles.signUpBackStyle} disabled={notAllow}>
               <Text>회원가입</Text>
             </TouchableOpacity>
-          </View>
-          <View style = {styles.signUpBackStyle}>
-            <TouchableOpacity onPress={closeModal}>
+         
+          
+            <TouchableOpacity style = {styles.signUpBackStyle} onPress={closeModal}>
               <Text>돌아가기</Text>
             </TouchableOpacity>
-          </View>
+          
         </View>
       </View>
      
@@ -93,13 +93,13 @@ export default function SignUpModal({ modalVisible, closeModal }) {
 
 const styles = StyleSheet.create({
   modalContainer: {
-    height: 430,
+    height: 450,
     width: 300,
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 1,
     alignSelf: "center",
-    marginTop: 140,
+    marginTop: 120,
     borderRadius: 20,
     backgroundColor: "rgb(220,210,210)",
     opacity: 4,
