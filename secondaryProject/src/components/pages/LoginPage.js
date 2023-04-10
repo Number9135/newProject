@@ -6,7 +6,6 @@ import highHeel from '../../../assets/highHeel.jpg';
 import SignUpModal from '../modal/SignUpModal';
 import {Ionicons, Feather, FontAwesome, AntDesign, MaterialCommunityIcons} from '@expo/vector-icons';
 import {Menu, Divider, Provider} from 'react-native-paper';
-import BottomMenu from '../form/BottomMenu';
 import MyStack from '../stacknavigator/StackNavigator';
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -83,7 +82,7 @@ export default function LoginPage({navigation}) {
       </View>
 
       <View style={styles.lowerContainer}>
-        <TouchableOpacity style={styles.buttonStyle}>
+        <TouchableOpacity style={styles.buttonStyle} onPress={()=>{navigation.navigate('MainPage')}}>
           <AntDesign name="home" size={17} color="black" />
           <Text>홈</Text>
         </TouchableOpacity>

@@ -12,17 +12,65 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Fab from '../modal/FabGroup';
 import FabGroup from '../modal/FabGroup';
 import { Provider, FAB } from 'react-native-paper';
+import data from '../../../data.json'
+import CateCard from '../form/CateCard';
+import { firebase_db } from '../../../firebaseConfig';
 
 
 export default function HomePage({navigation}) {
-
-
   const [ready, setReady] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setReady(false);
-    }, 3000);
-  });
+  
+  const [stateMap,setStateMap] = useState([])
+  const [cateState,setCateState] = useState([])
+
+  const [index, setIndex] = React.useState(0);
+
+  let tip = data.tip
+
+  const [visible, setVisible] = React.useState(false)
+
+  const openMenu = () => setVisible(true);
+
+  const closeMenu = () => setVisible(false);
+
+  const [state, setState] = React.useState({ open: false });
+
+  useEffect(()=>{
+
+    setTimeout(()=>{
+      firebase_db.ref('/tip').once('value').then((snapshot)=>{
+        console.log('파이어베이스에서 데이터 가져왔습니다!')
+        let tip = snapshot.val();
+        setStateMap(data.tip)
+        setCateState(data.tip)
+      })
+        
+        setReady(false)
+    }, 2000)
+  },[])
+ 
+
+
+  const category = (cate) => {
+    if(cate == "홈"){
+        setCateState(stateMap)
+    }else{
+        setCateState(stateMap.filter((d)=>{
+            return d.category == cate
+        }))
+    }
+}
+
+
+
+
+
+ 
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setReady(false);
+  //   }, 3000);
+  // });
 
   return ready ? (
     <LoadingPage />
@@ -44,23 +92,27 @@ export default function HomePage({navigation}) {
           </View>
         </View>
       </View>
-
+      
       <ScrollView style={styles.middleContainer}>
-        <Text>Main content</Text>
+        {
+          cateState.map((content, i)=>{
+            return(<CateCard content={content} key={i}/>)
+          })
+        }
       </ScrollView>
 
       <View style={styles.lowerContainer}>
-        <TouchableOpacity style={styles.buttonStyle}>
+        <TouchableOpacity style={styles.buttonStyle} onPress={()=>{category('홈')}}>
           <AntDesign name="home" size={17} color="black" />
           <Text>홈</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.buttonStyle}>
+        <TouchableOpacity style={styles.buttonStyle} onPress={()=>{category('하루1분')}}>
           <Ionicons name="time-outline" size={17} color="black" />
           <Text>하루1분</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.buttonStyle}>
+        <TouchableOpacity style={styles.buttonStyle} onPress={()=>{category('글 귀')}}>
           <Ionicons name="reader-outline" size={17} color="black" />
           <Text>글 귀</Text>
         </TouchableOpacity>
@@ -134,7 +186,7 @@ const styles = StyleSheet.create({
   
   uppercontainer01 : {
       
-      borderWidth : 1,
+      borderWidth : 0,
       height : 50,
       width : 50,
       alignItems : "center",
@@ -157,8 +209,13 @@ const styles = StyleSheet.create({
 
 
   middleContainer : {
-    borderWidth : 1,
+    borderWidth : 0,
     height : 330,
+    alignSelf : 'center',
+    width : 410,
+    paddingLeft : 25,
+   
+
   },
 
 
@@ -167,7 +224,7 @@ const styles = StyleSheet.create({
     borderWidth : 1,
     flex : 1,
     flexDirection : 'row',
-    justifyContent : 'space-around'
+    justifyContent : 'space-around',
   },
 
   buttonStyle : {

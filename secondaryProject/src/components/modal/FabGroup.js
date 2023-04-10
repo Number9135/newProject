@@ -12,25 +12,25 @@ const Fab = () => {
 
 <Portal>
 <FAB.Group
-    style ={{position: 'absolute', paddingRight:5, paddingBottom:60}}
+    style ={{position: 'absolute', paddingRight: 5, paddingBottom:60}}
   open={open}
   visible
-  icon={open ? 'calendar-today' : 'plus'}
+  icon={open ? 'format-list-bulleted' : 'plus'}
   actions={[
-    { icon: 'plus', onPress: () => console.log('Pressed add') },
+    
     {
-      icon: 'star',
-      label: 'Star',
+      icon: 'account',
+      label: '마이페이지',
       onPress: () => console.log('Pressed star'),
     },
     {
-      icon: 'email',
-      label: 'Email',
+      icon: 'cards-heart',
+      label: '찜 보기',
       onPress: () => console.log('Pressed email'),
     },
     {
-      icon: 'bell',
-      label: 'Remind',
+      icon: 'pencil',
+      label: '글쓰기',
       onPress: () => console.log('Pressed notifications'),
     },
   ]}
