@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
+import {View, StyleSheet, Image, TouchableOpacity, Text, ScrollView} from 'react-native';
 import highHeel from '../../../assets/highHeel.jpg'
 import {AntDesign} from '@expo/vector-icons';
 import LoadingPage from '../form/LoadingPage';
@@ -8,13 +8,11 @@ import LoginPage from '../pages/LoginPage';
 import { createStackNavigator } from "@react-navigation/stack";
 import headerImage from '../../../assets/headerImage.jpg'
 import {Ionicons, Feather, FontAwesome, MaterialCommunityIcons} from '@expo/vector-icons';
-import { ScrollView } from 'react-native-gesture-handler';
-import Fab from '../modal/FabGroup';
-import FabGroup from '../modal/FabGroup';
 import { Provider, FAB } from 'react-native-paper';
 import data from '../../../data.json'
 import CateCard from '../form/CateCard';
 import { firebase_db } from '../../../firebaseConfig';
+import FloatingButton from '../modal/FloatingButton';
 
 
 export default function HomePage({navigation}) {
@@ -137,7 +135,7 @@ export default function HomePage({navigation}) {
         </TouchableOpacity>
       </View>
             
-      <FabGroup/>
+      <FloatingButton style ={{marginTop: 550, marginLeft:100,}}/>
       
     </View>
     </Provider>

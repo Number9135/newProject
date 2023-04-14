@@ -11,6 +11,7 @@ const MyStack = () => {
         <Stack.Navigator>
             <Stack.Screen name ="MainPage" component = {MainPage}/>
             <Stack.Screen name ="LoginPage" component = {LoginPage}/>
+
          
         </Stack.Navigator>
     )
