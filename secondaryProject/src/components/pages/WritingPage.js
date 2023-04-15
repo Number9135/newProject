@@ -4,6 +4,7 @@ import { SimpleLineIcons } from '@expo/vector-icons';
 import {Button} from 'react-native-paper';
 import writingImage from '../../../assets/writingImage.jpg';
 import { TextInput } from 'react-native-paper';
+import ImagePick from '../form/ImagePick';
 
 
 
@@ -18,6 +19,8 @@ export default function WritingPage(){
     const [contentText, setContentText] = useState("");
 
     const [writerText, setWriterText] = useState("");
+
+    const [photo,  setPhoto] = useState(undefined);
 
     if (writeMode) {
       return (
@@ -71,7 +74,8 @@ export default function WritingPage(){
               type = 'focused'
             />
             <View style={{height:180, borderWidth:1, width:350, marginTop:10,}}>
-
+            <Image url={photo} onChangePhoto={setPhoto}/>
+              <ImagePick/>
             </View>
 
             <TextInput style={{borderWidth: 1, marginTop: 10, height: 180, width: 350, backgroundColor:'lightgray', opacity:0.7}}

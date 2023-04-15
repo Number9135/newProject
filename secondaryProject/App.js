@@ -16,7 +16,7 @@ export default function App() {
   //   <StackNavigator/>
   //  </NavigationContainer>
 
-  <ImagePick/>
+  <WritingPage/>
     
     
    
