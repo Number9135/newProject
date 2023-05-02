@@ -1,36 +1,50 @@
-import React from "react";
-import * as ImagePicker from "expo-image-picker";
-import { View, Image, Button, useState } from "react-native";
+import React, {useState, useEffect} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
+import { Feather } from '@expo/vector-icons';
 
- 
-const ImagePick = ({ url, onChangePhoto }) => {
+export default function ImagePick() {
 
- 
-  // photo 입력받는 button을 눌렀을 때 실행되는 함수
-  const _handlePhotoBtnPress = async () => {
-    // image library 접근에 대한 허가 필요 없음
-    // ImagePicker를 이용해 Image형식의 파일을 가져온다
+  const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
+  const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    (async()=>{
+      const galleryStatus = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      setHasGalleryPermission(galleryStatus.status === 'granted');
+
+    })();
+  }, []);
+
+  const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [1, 1],
+      mediaType: ImagePicker.MediaTypeOptions.Images,
+      allowEditing: true,
+      aspect: [4, 3],
       quality: 1,
     });
+    
+    console.log(result);
 
-
- 
-    // cancelled가 아닐 때 가져온 사진의 주소로 onChangePhoto
-    if (!result.canceled) {
-      onChangePhoto(result.uri);
+    if(!result.canceled){
+      setImage(result.uri);
     }
+
   };
- 
+
+  if(hasGalleryPermission === false){
+    return <Text>No access to Internal Storage</Text>
+  }
+
+  
+
   return (
-    <View>
-      <Image source={{ uri: url }} />
-      <Button title="Press" onPress={_handlePhotoBtnPress}/>
+    <View style ={{flex:1, top: -25, alignItems: 'center'}} >
+      <TouchableOpacity onPress={()=>pickImage()} style={{marginTop:30, flexDirection: 'row', justifyContent : 'center'}}>
+      <Feather name="camera" size={24} color="black" style={{marginRight: 10,}}/>
+        <Text>사진올리기</Text></TouchableOpacity>
+        {image && <Image source={{uri: image}} style = {{ height : 200, width: 340}}/>}
     </View>
-  );
-};
- 
-export default ImagePick;
+  )
+}
+

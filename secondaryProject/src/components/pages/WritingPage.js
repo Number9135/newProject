@@ -5,6 +5,9 @@ import {Button} from 'react-native-paper';
 import writingImage from '../../../assets/writingImage.jpg';
 import { TextInput } from 'react-native-paper';
 import ImagePick from '../form/ImagePick';
+import MainPage from '../main/MainPage';
+import MyStack from '../stacknavigator/StackNavigator';
+import { useNavigation } from '@react-navigation/native';
 
 
 
@@ -20,7 +23,8 @@ export default function WritingPage(){
 
     const [writerText, setWriterText] = useState("");
 
-    const [photo,  setPhoto] = useState(undefined);
+    const navigation = useNavigation();
+
 
     if (writeMode) {
       return (
@@ -28,7 +32,7 @@ export default function WritingPage(){
           <View style={{
               justifyContent:'center', 
               alignItems:'center', 
-              marginTop:30, 
+              marginTop:0, 
               paddingLeft: 0, 
               flexDirection:'row', 
               justifyContent:'space-between', 
@@ -65,27 +69,27 @@ export default function WritingPage(){
             </TouchableOpacity>
           </View>
 
-          <View style={{justifyContent:'center', alignItems: 'center', height: 600,}}>
-            <View style={{borderWidth: 1, height: 520, width: 380, alignItems:'center', justifyContent:'center', backgroundColor:'lavenderblush', opacity:0.9}}>
+          <View style={{justifyContent:'center', alignItems: 'center', height: 560,}}>
+            <View style={{borderWidth: 1, height: 550, width: 380, alignItems:'center', justifyContent:'center', backgroundColor:'lavenderblush', opacity:0.9}}>
             <TextInput style={{height: 50, width: 350, borderWidth:1, marginTop : 0, backgroundColor:'lightgray', opacity:0.7}}
               placeholder='주제를 입력하세요'
               value={titleText}
               onChangeText={text => setTitleText(text)}
               type = 'focused'
             />
-            <View style={{height:180, borderWidth:1, width:350, marginTop:10,}}>
-            <Image url={photo} onChangePhoto={setPhoto}/>
+            <View style={{height:240, borderWidth:1, width:350, marginTop:5,}}>
+            
               <ImagePick/>
             </View>
 
-            <TextInput style={{borderWidth: 1, marginTop: 10, height: 180, width: 350, backgroundColor:'lightgray', opacity:0.7}}
+            <TextInput style={{borderWidth: 1, marginTop: 5, height: 160, width: 350, backgroundColor:'lightgray', opacity:0.7}}
               
               value={contentText}
               onChangeText={text => setContentText(text)}
               placeholder='내용을 입력하세요'
     />
 
-            <TextInput style={{borderWidth: 1, marginTop: 10, height: 50, width: 350, backgroundColor:'lightgray', opacity:0.7}}
+            <TextInput style={{borderWidth: 1, marginTop: 5, height: 50, width: 350, backgroundColor:'lightgray', opacity:0.7}}
               placeholder = '저자를 입력하세요'
               value={writerText}
               onChangeText={text => setWriterText(text)}
@@ -93,27 +97,80 @@ export default function WritingPage(){
             />
             </View>
           </View>
-
-          
-
-
         </View>
       );
     }else if(asseyMode){
         return (
-            <View
-              style={{ flex: 1, justifyContent: "center", backgroundColor: "gray", marginTop:50, }}
-            >
-              <View>
-                <TouchableOpacity onPress={() => setAsseyMode(false)}>
-                  <Text>취소</Text>
-                </TouchableOpacity>
-                <Text>저장</Text>
-              </View>
-              <View style={{ flex: 1, backgroundColor: "#fff" }}>
-                <Text>글asdasdasdasd역</Text>
-              </View>
+          <View style={{borderWidth:1, flex:1,}}>
+          <View style={{
+              justifyContent:'center', 
+              alignItems:'center', 
+              marginTop:0, 
+              paddingLeft: 0, 
+              flexDirection:'row', 
+              justifyContent:'space-between', 
+              height:40, 
+              width:410, 
+              borderWidth : 1,
+              backgroundColor:'gray',
+              opacity:0.5}}>
+            
+            <TouchableOpacity style={{
+              justifyContent:'center', 
+              alignItems:'center',
+              height:30, 
+              width:50,
+              marginLeft:10,
+              }} 
+              onPress={()=>setWriteMode(false)}>
+              <Text style={{
+                fontSize:15,
+                fontWeight:'bold'}}>저장</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={{
+              justifyContent:'center', 
+              alignItems:'center',
+              height:30, 
+              width:50,
+              marginRight:10,
+              }} 
+              onPress={()=>setAsseyMode(false)}>
+            <Text style={{
+                fontSize:15,
+                fontWeight:'bold'}}>취소</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={{justifyContent:'center', alignItems: 'center', height: 560,}}>
+            <View style={{borderWidth: 1, height: 550, width: 380, alignItems:'center', justifyContent:'center', backgroundColor:'lavenderblush', opacity:0.9}}>
+            <TextInput style={{height: 50, width: 350, borderWidth:1, marginTop : 0, backgroundColor:'lightgray', opacity:0.7}}
+              placeholder='주제를 입력하세요'
+              value={titleText}
+              onChangeText={text => setTitleText(text)}
+              type = 'focused'
+            />
+            <View style={{height:240, borderWidth:1, width:350, marginTop:5,}}>
+            
+              <ImagePick/>
             </View>
+
+            <TextInput style={{borderWidth: 1, marginTop: 5, height: 160, width: 350, backgroundColor:'lightgray', opacity:0.7}}
+              
+              value={contentText}
+              onChangeText={text => setContentText(text)}
+              placeholder='내용을 입력하세요'
+    />
+
+            <TextInput style={{borderWidth: 1, marginTop: 5, height: 50, width: 350, backgroundColor:'lightgray', opacity:0.7}}
+              placeholder = '저자를 입력하세요'
+              value={writerText}
+              onChangeText={text => setWriterText(text)}
+              
+            />
+            </View>
+          </View>
+        </View>
           );
     }
 
@@ -137,7 +194,7 @@ export default function WritingPage(){
             <Text>글 귀</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.buttonStyle} onPress={()=>setAsseyMode(true)}>
+          <TouchableOpacity style={styles.buttonStyle} onPress={()=>navigation.navigate("MainPage")}>
             <Text>돌아가기</Text>
           </TouchableOpacity>
 
@@ -159,7 +216,7 @@ const styles = StyleSheet.create({
     alignItems : 'center',
     marginTop : 20,
 
-    backgroundColor : 'lavenderblush',
+    backgroundColor : 'lightgray',
     opacity : 1,
     shadowColor: 'gray',
     shadowOpacity : 0.7,

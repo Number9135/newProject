@@ -2,18 +2,18 @@ import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
 import React, {useEffect, useRef, useState} from "react";
 import {View, Text, StyleSheet, TouchableWithoutFeedback, Animated} from 'react-native';
 import WritingPage from '../pages/WritingPage';
+import { useNavigation } from "@react-navigation/native";
 
 
 
-export default function FloatingButton(open,{navigation}){
+export default function FloatingButton(open,){
 
 
     const [pencil, setPencil] = useState(false)
 
-    const openPencil = () =>{
-        setPencil(true);
-        return WritingPage;
-    }
+    // const [writeMode, setWriteMode] = useState(false)
+
+   
    
     const animation = useRef(new Animated.Value(0)).current
 
@@ -64,20 +64,27 @@ export default function FloatingButton(open,{navigation}){
             }
         ]
     }
+
+
+    // if(writeMode){
+    //     return <WritingPage/>
+    // }
+
+    const navigation = useNavigation();
    
         return(
             <View style = {[styles.container, ]}>
-                <TouchableWithoutFeedback Value={pencil} onPress={openPencil}>
+                <TouchableWithoutFeedback>
                     <Animated.View style = {[styles.button, styles.secondary, thumbStyle]}>
                         <Entypo name="heart" size={20} color='black'/>
                     </Animated.View>
                  
                 </TouchableWithoutFeedback>
 
-                <TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={()=>{navigation.navigate('WritingPage')}}>
                     <Animated.View style = {[styles.button, styles.secondary, pinStyle]}>
                         <Ionicons name="pencil" size={20} color='black'/>
-                        
+                
                     </Animated.View>
                 </TouchableWithoutFeedback>
 
@@ -88,7 +95,8 @@ export default function FloatingButton(open,{navigation}){
                 </TouchableWithoutFeedback>
             </View>
         )
-    
+
+       
 }
 
 

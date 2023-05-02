@@ -5,6 +5,8 @@ import StackNavigator from './src/components/stacknavigator/StackNavigator'
 import MainPage from './src/components/main/MainPage'
 import WritingPage from './src/components/pages/WritingPage';
 import ImagePick from './src/components/form/ImagePick';
+import VedioForm from './src/components/form/VedioForm'
+import DibsListPage from './src/components/pages/DibsListPage';
 
 
 export default function App() {
@@ -16,7 +18,7 @@ export default function App() {
   //   <StackNavigator/>
   //  </NavigationContainer>
 
-  <WritingPage/>
+  <DibsListPage/>
     
     
    
