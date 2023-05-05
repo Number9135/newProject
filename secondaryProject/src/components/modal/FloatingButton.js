@@ -74,7 +74,7 @@ export default function FloatingButton(open,){
    
         return(
             <View style = {[styles.container, ]}>
-                <TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress = {()=>{navigation.navigate('DibListPage')}}>
                     <Animated.View style = {[styles.button, styles.secondary, thumbStyle]}>
                         <Entypo name="heart" size={20} color='black'/>
                     </Animated.View>

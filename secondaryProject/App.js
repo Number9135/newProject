@@ -13,12 +13,12 @@ export default function App() {
 
   return (
     
-  // <NavigationContainer>
-  // <StatusBar style="black" />
-  //   <StackNavigator/>
-  //  </NavigationContainer>
+  <NavigationContainer>
+  <StatusBar style="black" />
+    <StackNavigator/>
+   </NavigationContainer>
 
-  <DibsListPage/>
+  
     
     
    

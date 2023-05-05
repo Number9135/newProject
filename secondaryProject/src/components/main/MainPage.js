@@ -135,7 +135,7 @@ export default function HomePage({navigation}) {
         </TouchableOpacity>
       </View>
             
-      <FloatingButton style ={{marginTop: 550, marginLeft:100,}}/>
+      <FloatingButton style ={{marginTop: 400, marginLeft:100,}}/>
       
     </View>
     </Provider>
