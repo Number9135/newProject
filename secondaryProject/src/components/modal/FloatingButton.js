@@ -3,6 +3,7 @@ import React, {useEffect, useRef, useState} from "react";
 import {View, Text, StyleSheet, TouchableWithoutFeedback, Animated} from 'react-native';
 import WritingPage from '../pages/WritingPage';
 import { useNavigation } from "@react-navigation/native";
+import LikePage from '../pages/LikePage'
 
 
 

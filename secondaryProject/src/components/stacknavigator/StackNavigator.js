@@ -5,6 +5,7 @@ import LoginPage from "../pages/LoginPage";
 import MainPage from '../main/MainPage';
 import WritingPage from '../pages/WritingPage';
 import DibsListPage from '../pages/DibsListPage';
+import LikePage from '../pages/LikePage';
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ const MyStack = () => {
             <Stack.Screen name ="LoginPage" component = {LoginPage}/>
             <Stack.Screen name ="WritingPage" component = {WritingPage}/>
             <Stack.Screen name ="DibListPage" component = {DibsListPage}/>
+            <Stack.Screen name ="LikePage" component = {LikePage}/>
 
          
         </Stack.Navigator>
