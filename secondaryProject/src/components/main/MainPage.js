@@ -59,17 +59,6 @@ export default function HomePage({navigation}) {
     }
 }
 
-
-
-
-
- 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setReady(false);
-  //   }, 3000);
-  // });
-
   return ready ? (
     <LoadingPage />
   ) : (

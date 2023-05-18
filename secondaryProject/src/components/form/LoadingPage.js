@@ -5,10 +5,10 @@ import loadingImage from '../../../assets/loadingImage.jpg';
 
 export default function LoadingPage() {
   return (
-    <View>
+    <View style={{justifyContent:'center', alignItems:'center'}}>
         <Image 
           
-            source = {loadingImage}/>
+            source = {loadingImage} style={{width:400, height:600}}/>
     </View>
   )
 }

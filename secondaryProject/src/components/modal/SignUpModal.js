@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 1,
     alignSelf: "center",
-    marginTop: 120,
+    marginTop: 150,
     borderRadius: 20,
     backgroundColor: "rgb(220,210,210)",
     opacity: 4,

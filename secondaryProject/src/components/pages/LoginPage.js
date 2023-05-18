@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
 container : {
     flex : 1,
     borderWidth : 1,
-    backgroundColor : 'rgb(220,210,225)',    
+    backgroundColor : 'rgb(240,250,250)',    
 },
 
 
@@ -125,18 +125,18 @@ container : {
 upperContainer : {
   flexDirection : 'row',
   width : 410,
-  borderWidth : 1,
+  borderWidth : 0,
   backgroundColor : 'white'
 },
 
     upperContainer01 : {
-      borderWidth : 1,
+      borderWidth : 0,
       width : 40,
       height : 40,
     },
 
     upperContainer02 : {
-      borderWidth : 1,
+      borderWidth : 0,
       width : 370,
       justifyContent : 'space-evenly',
       paddingTop : 15,
@@ -153,8 +153,10 @@ upperContainer : {
 
 middleContainer : {
   borderWidth : 1,
-  paddingTop : 15,
-  height : 500,
+  paddingTop : 0,
+  height : 580,
+  alignItems : 'center',
+  justifyContent: 'center'
 },
 
     subTitleContainer : {
@@ -229,7 +231,7 @@ middleContainer : {
 
 
 lowerContainer : {
-  borderWidth : 1,
+  borderWidth : 0,
   flex : 1,
   flexDirection : 'row',
   justifyContent : 'space-around'

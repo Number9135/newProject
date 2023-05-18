@@ -3,16 +3,13 @@ import React, {useEffect, useRef, useState} from "react";
 import {View, Text, StyleSheet, TouchableWithoutFeedback, Animated} from 'react-native';
 import WritingPage from '../pages/WritingPage';
 import { useNavigation } from "@react-navigation/native";
-import LikePage from '../pages/LikePage'
 
 
 
-export default function FloatingButton(open,){
+export default function FloatingButton(open){
 
 
     const [pencil, setPencil] = useState(false)
-
-    // const [writeMode, setWriteMode] = useState(false)
 
    
    
@@ -66,11 +63,6 @@ export default function FloatingButton(open,){
         ]
     }
 
-
-    // if(writeMode){
-    //     return <WritingPage/>
-    // }
-
     const navigation = useNavigation();
    
         return(
@@ -110,9 +102,6 @@ const styles = StyleSheet.create({
         marginTop : 500,
         marginLeft : 350,
       
-    
-        
-    
     },
 
     button : {
